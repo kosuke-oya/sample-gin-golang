@@ -12,7 +12,7 @@ RUN go install github.com/swaggo/swag/cmd/swag@latest
 ARG ENV_KEY
 ENV ENV_KEY=${ENV_KEY}
 
-# RUN go build -o /httpserver
+RUN go build -o /httpserver
 
 FROM alpine:latest as production
 ARG ENV_KEY
