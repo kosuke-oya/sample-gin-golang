@@ -1,0 +1,18 @@
+---
+services:
+  httpserver:
+    image: httpserver:latest
+    container_name: "httpserver"
+    ports:
+      - 8080:8080
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      # docker-compose file for dev
+      target: dev
+    volumes:
+      - ./:/app
+    tty: true
+    restart: always
+    environment:
+      - ENV_KEY=ENV_VALUE
