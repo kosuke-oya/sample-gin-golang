@@ -47,7 +47,6 @@ func Logger(l *zap.Logger) gin.HandlerFunc {
 		bodyBytes, _ := io.ReadAll(c.Request.Body)
 		c.Request.Body = io.NopCloser(bytes.NewBuffer(bodyBytes))
 
-		// CloudLoggingに送信用のメッセージを定義
 		heaserBytes, err := json.Marshal(c.Request.Header)
 		if err != nil {
 			fmt.Println("failed to marshal header")
