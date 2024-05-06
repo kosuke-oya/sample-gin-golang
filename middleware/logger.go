@@ -12,17 +12,6 @@ import (
 	zap "go.uber.org/zap"
 )
 
-type LogInfo struct {
-	RemoteAddr  string
-	ContentType string
-	Path        string
-	Query       string
-	Method      string
-	Body        string
-	HttpStatus  int
-	Err         error
-	ReturnJson  string
-}
 
 type MyResponseWriter struct {
 	gin.ResponseWriter
