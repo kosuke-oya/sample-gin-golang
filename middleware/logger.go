@@ -12,17 +12,9 @@ import (
 	zap "go.uber.org/zap"
 )
 
-type MyResponseWriter struct {
-	gin.ResponseWriter
-	body *bytes.Buffer
-}
-
 func Logger(l *zap.Logger) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		start := time.Now()
-		fmt.Println("starting logger", start)
-		w := &MyResponseWriter{ResponseWriter: c.Writer, body: &bytes.Buffer{}}
-		c.Writer = w
 		c.Next()
 
 		bodyBytes, _ := io.ReadAll(c.Request.Body)
