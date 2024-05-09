@@ -12,17 +12,9 @@ import (
 	zap "go.uber.org/zap"
 )
 
-
 type MyResponseWriter struct {
 	gin.ResponseWriter
 	body *bytes.Buffer
-}
-
-func (w *MyResponseWriter) Write(data []byte) (int, error) {
-	// Capture the response body
-	w.body.Write(data)
-	// Call the original Write method to write to the actual response writer
-	return w.ResponseWriter.Write(data)
 }
 
 func Logger(l *zap.Logger) gin.HandlerFunc {
